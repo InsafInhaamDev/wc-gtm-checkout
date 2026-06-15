@@ -5,8 +5,16 @@ Tracks completed WooCommerce orders by injecting a **Google Tag Manager** contai
 - **Version:** 1.0.0
 - **Author:** Insaf Inhaam
 - **Requires:** WooCommerce
-- **Container in use:** `GTM-5FRCLT48`
-- **GA4 Measurement ID:** `G-T08LDDNFYJ`
+
+> The GTM Container ID and GA4 Measurement ID are configured in the plugin settings (see screenshot below), not hard-coded here. The **Measurement Protocol API secret** is a real secret — keep it only in the settings, never in docs or version control.
+
+---
+
+## Settings page
+
+**WooCommerce → GTM Checkout**
+
+![GTM Checkout settings page](docs/settings-page.png)
 
 ---
 
@@ -44,7 +52,7 @@ dataLayer.push({
 The data layer push only makes the data **available** — a tag in GTM routes it to GA4:
 
 - **Trigger:** `WC - Purchase` — Custom Event, event name = `purchase`
-- **Tag:** `GA4 - Purchase` — GA4 Event tag, event name `purchase`, **"Send Ecommerce data" → from Data Layer**, Measurement ID `G-T08LDDNFYJ`
+- **Tag:** `GA4 - Purchase` — GA4 Event tag, event name `purchase`, **"Send Ecommerce data" → from Data Layer**, Measurement ID = the GA4 ID set in the plugin settings
 
 To build conversions/audiences, use the GA4 `purchase` event and its ecommerce parameters (`value`, `transaction_id`, `items`, etc.).
 
@@ -107,7 +115,7 @@ To build conversions/audiences, use the GA4 `purchase` event and its ecommerce p
 2. Place a **fresh** test order (the dedup flag means you can't re-test an already-tracked order by refreshing — use a new order, or temporarily clear the `_gtm_purchase_tracked` meta).
 3. On the order-received page, open DevTools console → type `dataLayer` → confirm the `purchase` object.
 4. Confirm in **GTM Preview** that `GA4 - Purchase` fires, then in **GA4 DebugView/Realtime** that the event arrives.
-5. Make sure the report/property you check matches Measurement ID `G-T08LDDNFYJ`.
+5. Make sure the report/property you check matches the GA4 Measurement ID set in the plugin settings.
 
 ## Troubleshooting
 | Symptom | Likely cause |
