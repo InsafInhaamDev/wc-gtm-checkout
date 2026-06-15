@@ -7,16 +7,14 @@ Tracks completed WooCommerce orders by injecting a **Google Tag Manager** contai
 - **Requires:** WooCommerce
 
 > The GTM Container ID and GA4 Measurement ID are configured in the plugin settings (see screenshot below), not hard-coded here. The **Measurement Protocol API secret** is a real secret — keep it only in the settings, never in docs or version control.
-
-<img width="1267" height="811" alt="image" src="https://github.com/user-attachments/assets/2db20d30-ad17-4a81-86d8-027817adee73" />
-
+> 
 ---
 
 ## Settings page
 
 **WooCommerce → GTM Checkout**
 
-![GTM Checkout settings page](docs/settings-page.png)
+<img width="1267" height="811" alt="image" src="https://github.com/user-attachments/assets/2db20d30-ad17-4a81-86d8-027817adee73" />
 
 ---
 
